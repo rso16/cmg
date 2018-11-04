@@ -2,7 +2,7 @@ OBJS = bin/main.o
 CC = gcc
 CFLAGS = -Wall -c
 LFLAGS = -Wall
-NAME = bin/tui_test
+NAME = bin/xmake
 
 
 all: $(OBJS)
