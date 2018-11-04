@@ -3,9 +3,10 @@
 #include <stdio.h>
 #include <limits.h>
 #include <unistd.h>
+#include <string.h>
 
 //defines
-#define COMMANDO argv[1]
+#define COMMAND argv[1]
 
 //macros
 //macro for canging the cursor
@@ -16,15 +17,15 @@ char cmd2[4] = {0x1B, '[', 'f', '\0'}; // Cursor home
 
 int main(int argc, char **argv)
 {
-	if(argc < 1)
+	if(argc < 2)
 	{	
 		//gen make file
 		printf("generating makefile\n");
 	}
 	else
 	{
-		printf("testing\n");
-		if(COMMANDO == "init")
+		printf("first param = %s\n", argv[1]);
+		if(strcmp(COMMAND, "init") != 0)
 		{
 			printf("initializing\n");
 		}	
