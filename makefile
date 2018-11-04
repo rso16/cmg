@@ -7,6 +7,7 @@ NAME = bin/xmake
 
 all: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS)  -o $(NAME)
+run: all
 	$(NAME)
 bin/main.o : src/main.c 
 	$(CC) $(CFLAGS) src/main.c -o bin/main.o
