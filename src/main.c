@@ -7,16 +7,23 @@
 
 //defines
 #define COMMAND argv[1]
+#define TEMPLATE argv[2]
 
 //macros
 //macro for canging the cursor
 #define gotoxy(x,y) printf("\033[%d;%dH", (x), (y)) 
 
+//function prototypes
+void init(char *template);
+
+
+//vt commands
 char cmd1[5] = {0x1B, '[', '2', 'J', '\0'}; // Clear screen
 char cmd2[4] = {0x1B, '[', 'f', '\0'}; // Cursor home
 
 int main(int argc, char **argv)
 {
+	printf("%s\n", argv[0]); 
 	if(argc < 2)
 	{	
 		//gen make file
@@ -28,6 +35,7 @@ int main(int argc, char **argv)
 		if(strcmp(COMMAND, "init") != 0)
 		{
 			printf("initializing\n");
+			init(TEMPLATE);
 		}	
 	}	
 //	char cwd[PATH_MAX];
@@ -38,3 +46,7 @@ int main(int argc, char **argv)
 	return 0;
 }
 
+void init(char *template)
+{
+	
+}
