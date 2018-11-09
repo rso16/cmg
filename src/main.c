@@ -4,6 +4,8 @@
 #include <limits.h>
 #include <unistd.h>
 #include <string.h>
+#include "node/node.h"
+
 
 //defines
 #define COMMAND argv[1]
@@ -14,7 +16,7 @@
 #define gotoxy(x,y) printf("\033[%d;%dH", (x), (y)) 
 
 //function prototypes
-void init(char *template);
+void init(char *pathToTemplate,char *templateName);
 
 
 //vt commands
@@ -35,6 +37,7 @@ int main(int argc, char **argv)
 		if(strcmp(COMMAND, "init") != 0)
 		{
 			printf("initializing\n");
+				
 			init(TEMPLATE);
 		}	
 	}	
@@ -46,7 +49,9 @@ int main(int argc, char **argv)
 	return 0;
 }
 
-void init(char *template)
+void init(char *pathToTemplate,char *templateName);
 {
+	FILE *fp;
+	fp = fopen(
 	
 }
