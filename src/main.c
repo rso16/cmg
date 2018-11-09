@@ -8,8 +8,9 @@
 
 
 //defines
-#define COMMAND argv[1]
-#define TEMPLATE argv[2]
+#define PAT		argv[0]
+#define COMMAND		argv[1]
+#define TEMPLATE 	argv[2]
 
 //macros
 //macro for canging the cursor
