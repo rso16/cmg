@@ -1,4 +1,5 @@
 //made by RSO16
+
 //includes
 #include <stdio.h>
 #include <limits.h>
@@ -8,7 +9,7 @@
 
 
 //defines
-#define PAT		argv[0]
+#define PATH		argv[0]
 #define COMMAND		argv[1]
 #define TEMPLATE 	argv[2]
 
@@ -19,10 +20,14 @@
 //function prototypes
 void init(char *pathToTemplate,char *templateName);
 
-
 //vt commands
 char cmd1[5] = {0x1B, '[', '2', 'J', '\0'}; // Clear screen
 char cmd2[4] = {0x1B, '[', 'f', '\0'}; // Cursor home
+
+//global vars
+nodeList *fullpath;
+
+
 
 int main(int argc, char **argv)
 {
@@ -39,7 +44,7 @@ int main(int argc, char **argv)
 		{
 			printf("initializing\n");
 				
-			init(TEMPLATE);
+			init(PATH, TEMPLATE);
 		}	
 	}	
 //	char cwd[PATH_MAX];
@@ -50,9 +55,16 @@ int main(int argc, char **argv)
 	return 0;
 }
 
-void init(char *pathToTemplate,char *templateName);
+void init(char *pathToTemplate,char *templateName)
 {
 	FILE *fp;
-	fp = fopen(
+
+	addStrToList(fullpath, "..\0");
+	printf("test 0\n");
+	addStrToList(fullpath, pathToTemplate);
+	addStrToList(fullpath,'\\');
+	addStrToList(fullpath,'templateName');
+	printList(fullpath);
+	//fp = fopen(
 	
 }
