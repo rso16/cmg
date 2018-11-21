@@ -31,7 +31,8 @@ nodeList *fullpath;
 
 int main(int argc, char **argv)
 {
-	printf("%s\n", argv[0]); 
+    fullpath = malloc(sizeof(nodeList));
+    printf("%s\n", argv[0]); 
 	if(argc < 2)
 	{	
 		//gen make file
@@ -40,7 +41,8 @@ int main(int argc, char **argv)
 	else
 	{
 		printf("first param = %s\n", argv[1]);
-		if(strcmp(COMMAND, "init") != 0)
+	//	printf("test = %d\n", strcmp(COMMAND,"rick"));
+		if(strcmp(COMMAND, "init") == 0)
 		{
 			printf("initializing\n");
 				
@@ -62,9 +64,9 @@ void init(char *pathToTemplate,char *templateName)
 	addStrToList(fullpath, "..\0");
 	printf("test 0\n");
 	addStrToList(fullpath, pathToTemplate);
-	addStrToList(fullpath,'\\');
-	addStrToList(fullpath,'templateName');
-	printList(fullpath);
+	addStrToList(fullpath,"\\");
+	addStrToList(fullpath,templateName);
+	printStrList(fullpath);
 	//fp = fopen(
 	
 }

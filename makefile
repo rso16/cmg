@@ -8,7 +8,7 @@ NAME = bin/xmake
 all: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS)  -o $(NAME)
 run: all
-	$(NAME)
+	$(NAME) "init" "c.template"
 clean : 
 	\rm bin/*.o $(NAME)
 bin/main.o : src/main.c src/node/node.h 
