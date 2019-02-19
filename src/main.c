@@ -41,7 +41,6 @@ int main(int argc, char **argv)
 	else
 	{
 		printf("first param = %s\n", argv[1]);
-	//	printf("test = %d\n", strcmp(COMMAND,"rick"));
 		if(strcmp(COMMAND, "init") == 0)
 		{
 			printf("initializing\n");
@@ -60,8 +59,8 @@ int main(int argc, char **argv)
 void init(char *pathToTemplate,char *templateName)
 {
 	FILE *fp;
-
-	addStrToList(fullpath, "..\0");
+	printf("pathToTemplate = %s, templateName = %s\n", pathToTemplate, templateName);
+	addStrToList(fullpath, "../\0");
 	printf("test 0\n");
 	addStrToList(fullpath, pathToTemplate);
 	addStrToList(fullpath,"\\");
