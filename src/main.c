@@ -18,7 +18,7 @@
 #define gotoxy(x,y) printf("\033[%d;%dH", (x), (y)) 
 
 //function prototypes
-void init(char *pathToTemplate,char *templateName);
+void init(char *pathToProgram,char *templateName);
 
 //vt commands
 char cmd1[5] = {0x1B, '[', '2', 'J', '\0'}; // Clear screen
@@ -56,16 +56,18 @@ int main(int argc, char **argv)
 	return 0;
 }
 
-void init(char *pathToTemplate,char *templateName)
+void init(char *pathToProgram,char *templateName)
 {
 	FILE *fp;
-	printf("pathToTemplate = %s, templateName = %s\n", pathToTemplate, templateName);
-	addStrToList(fullpath, "../\0");
+	printf("pathToProgram = %s, templateName = %s\n", pathToProgram, templateName);
 	printf("test 0\n");
-	addStrToList(fullpath, pathToTemplate);
-	addStrToList(fullpath,"\\");
+	addStrToList(fullpath, pathToProgram);
+	addStrToList(fullpath,"/../templates/");
 	addStrToList(fullpath,templateName);
 	printStrList(fullpath);
-	//fp = fopen(
+	char *pathStr = malloc(sizeof(char) * (fullpath->size + 1));
+	listToStr(fullpath, pathStr, 0, fullpath->size);	
+	printf("pathStr = %s\n", pathStr);	
+//fp = fopen(
 	
 }
