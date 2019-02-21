@@ -68,6 +68,7 @@ void init(char *pathToProgram,char *templateName)
 	char *pathStr = malloc(sizeof(char) * (fullpath->size + 1));
 	listToStr(fullpath, pathStr, 0, fullpath->size);	
 	printf("pathStr = %s\n", pathStr);	
-//fp = fopen(
+	
+	fp = fopen(pathStr, "r");
 	
 }
