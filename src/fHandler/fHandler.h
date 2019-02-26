@@ -1,7 +1,7 @@
 #ifndef FHANDLER_H
 #define FHANDLER_H
 
-#include "node/node.h"
+#include "../node/node.h"
 //Defines
 typedef struct 
 {
@@ -22,6 +22,7 @@ typedef struct
 
 
 //fuctions
-
+int addLineToFileList(fileLine *fLine, fileList *fList);
+fileList * getLineFromFile(nodeList *path);
 
 #endif
