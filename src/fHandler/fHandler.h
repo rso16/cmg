@@ -23,6 +23,6 @@ typedef struct
 
 //fuctions
 int addLineToFileList(fileLine *fLine, fileList *fList);
-fileList * getLineFromFile(nodeList *path);
-
+fileList * getLineFromFile(nodeList *path, int ln);
+nodeList * makeTemplatePath(char *pathToProgram, char *templateName);
 #endif

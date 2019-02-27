@@ -2,7 +2,7 @@ OBJS = bin/main.o bin/node.o
 CC = gcc
 CFLAGS = -Wall -c
 LFLAGS = -Wall
-NAME = bin/xmake
+NAME = bin/cmg
 
 
 all: $(OBJS)

@@ -25,14 +25,12 @@ char cmd1[5] = {0x1B, '[', '2', 'J', '\0'}; // Clear screen
 char cmd2[4] = {0x1B, '[', 'f', '\0'}; // Cursor home
 
 //global vars
-nodeList *fullpath;
 
 
 
 int main(int argc, char **argv)
 {
-    fullpath = malloc(sizeof(nodeList));
-    printf("%s\n", argv[0]); 
+    	printf("%s\n", argv[0]); 
 	if(argc < 2)
 	{	
 		//gen make file
@@ -56,19 +54,8 @@ int main(int argc, char **argv)
 	return 0;
 }
 
-void init(char *pathToProgram,char *templateName)
+void init(char *pathToProgram, char *templateName)
 {
-	FILE *fp;
-	printf("pathToProgram = %s, templateName = %s\n", pathToProgram, templateName);
-	printf("test 0\n");
-	addStrToList(fullpath, pathToProgram);
-	addStrToList(fullpath,"/../templates/");
-	addStrToList(fullpath,templateName);
-	printStrList(fullpath);
-	char *pathStr = malloc(sizeof(char) * (fullpath->size + 1));
-	listToStr(fullpath, pathStr, 0, fullpath->size);	
-	printf("pathStr = %s\n", pathStr);	
-	
-	fp = fopen(pathStr, "r");
-	
+	nodeList *path = makeTemplatePath(pathToProgram, templateName);
+	getLineFromFile(path, 0);	
 }
