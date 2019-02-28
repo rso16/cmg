@@ -8,9 +8,10 @@ int addLineToFileList(fileLine *fLine, fileList *fList)
 
 fileList * getLineFromFile(nodeList *path, int ln)
 {
-	fileLine *line = malloc(sizeof(fileLine));	
-	printf("test\n");			
-	
+	fileLine *line = malloc(sizeof(fileLine));
+	char *pathStr = malloc((sizeof(char) * path->size));
+	listToStr(path, pathStr, 0, path->size);	
+	FILE *fp = fopen(pathStr, "r");	
 	return NULL;
 }
 
