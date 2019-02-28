@@ -1,4 +1,4 @@
-OBJS = bin/main.o bin/node.o
+OBJS = bin/main.o bin/node.o bin/fHandler.o
 CC = gcc
 CFLAGS = -Wall -c
 LFLAGS = -Wall

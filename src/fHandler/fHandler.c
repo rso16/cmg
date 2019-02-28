@@ -8,15 +8,15 @@ int addLineToFileList(fileLine *fLine, fileList *fList)
 
 fileList * getLineFromFile(nodeList *path, int ln)
 {
-	fileLine *line = malloc(sizeof(fileLine);	
+	fileLine *line = malloc(sizeof(fileLine));	
 	printf("test\n");			
 	
-	return -1;
+	return NULL;
 }
 
-nodelist * makeTemplatePath(char *pathToProgram, char *templateName)
+nodeList * makeTemplatePath(char *pathToProgram, char *templateName)
 {
-	nodeList *fullpath = malloc(sizeof(nodeList);
+	nodeList *fullpath = malloc(sizeof(nodeList));
 	printf("pathToProgram = %s, templateName = %s\n", pathToProgram, templateName);
 	addStrToList(fullpath, pathToProgram);
 	addStrToList(fullpath,"/../templates/");
