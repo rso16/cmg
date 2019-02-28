@@ -4,9 +4,10 @@ CFLAGS = -Wall -c
 LFLAGS = -Wall
 NAME = bin/cmg
 
-
+.phony : all
 all: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS)  -o $(NAME)
+.phony : run
 run: all
 	$(NAME) "init" "c.template"
 clean : 
