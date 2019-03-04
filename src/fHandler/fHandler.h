@@ -3,6 +3,8 @@
 
 #include "../node/node.h"
 //Defines
+#define DEBUG
+
 typedef struct 
 {
 	struct Node *head;
