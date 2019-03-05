@@ -6,14 +6,17 @@ int addLineToFileList(fileLine *fLine, fileList *fList)
 	return -1;
 }
 
-fileList * getLineFromFile(nodeList *path, int ln)
+fileLine * getLineFromFile(nodeList *path, int ln)
 {
 	//make char array of path
 	fileLine *line = malloc(sizeof(fileLine));
 	char *pathStr = malloc((sizeof(char) * path->size));
 	listToStr(path, pathStr, 0, path->size);	
+	
+	//ope file
 	FILE *fp = fopen(pathStr, "r");	
 	
+	//check if file is properly opened	
 	if(fp = NULL)
 	{
 		printf("Error opening file\n");
@@ -21,9 +24,19 @@ fileList * getLineFromFile(nodeList *path, int ln)
 	}
 	else
 	{
+		
 		//get to line
-				
+						
 		//get line	
+		char c = 0;
+		while(c != '\0')
+		{
+			c = fgetc(fp);
+			if(lCounter == ln)
+			{
+
+			}
+		}
 	}	
 }
 
