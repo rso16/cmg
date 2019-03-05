@@ -17,7 +17,7 @@ fileLine * getLineFromFile(nodeList *path, int ln)
 	FILE *fp = fopen(pathStr, "r");	
 	
 	//check if file is properly opened	
-	if(fp = NULL)
+	if(fp == NULL)
 	{
 		printf("Error opening file\n");
 		return NULL;
@@ -29,14 +29,29 @@ fileLine * getLineFromFile(nodeList *path, int ln)
 						
 		//get line	
 		char c = 0;
+		int lCounter = 0;	
+		bool firstLetter = false;
 		while(c != '\0')
 		{
 			c = fgetc(fp);
 			if(lCounter == ln)
 			{
-
+				if(firstLetter)
+				{
+					line->loc = malloc(sizeof(fpos_t));
+					fgetpos(fp, line->loc);
+					firstLetter = true;
+				}
+				
+				addDataToList((nodeList *) line, c);				
+			}
+			if(c == '\0')
+			{
+				lCounter++;
 			}
 		}
+		
+		return line;
 	}	
 }
 
