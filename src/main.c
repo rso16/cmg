@@ -35,17 +35,6 @@ int main(int argc, char **argv)
 	{	
 		//gen make file
 		//printf("generating makefile\n");
-		printf("testing nodelist\n");
-		nodeList *list = malloc(sizeof(nodeList));
-		addDataToList(list, 2);
-		addDataToList(list, '/');
-		addDataToList(list, 7);
-		printf("size = %d\n", list->size);
-		printList(list);
-		removeTailFromListTill(list, '/');
-		printf("%d\n", list->size);
-		printList(list);
-		
 	}
 	else
 	{

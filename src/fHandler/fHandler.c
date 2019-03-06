@@ -11,9 +11,11 @@ fileLine * getLineFromFile(nodeList *path, int ln)
 	//make char array of path
 	fileLine *line = malloc(sizeof(fileLine));
 	char *pathStr = malloc((sizeof(char) * path->size));
-	listToStr(path, pathStr, 0, path->size);	
+	int ret = listToStr(path, pathStr, 0, path->size - 1);	
+	printf("ret  = %d\n", ret);
+	printf("pathStr = %s\n",pathStr);
 	
-	//ope file
+	//open file
 	FILE *fp = fopen(pathStr, "r");	
 	
 	//check if file is properly opened	
@@ -24,7 +26,7 @@ fileLine * getLineFromFile(nodeList *path, int ln)
 	}
 	else
 	{
-		
+		printf("Opening File\n");		
 		//get to line
 						
 		//get line	
@@ -50,7 +52,7 @@ fileLine * getLineFromFile(nodeList *path, int ln)
 				lCounter++;
 			}
 		}
-		
+		printStrList(line);	
 		return line;
 	}	
 }
@@ -63,6 +65,7 @@ nodeList * makeTemplatePath(char *pathToProgram, char *templateName)
 	removeTailFromListTill(fullpath, '/');
 	addStrToList(fullpath,"../templates/");
 	addStrToList(fullpath,templateName);
+	printf("Test 1\n");
 	printStrList(fullpath);
 	return fullpath;	
 }
