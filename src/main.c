@@ -38,11 +38,11 @@ int main(int argc, char **argv)
 		printf("testing nodelist\n");
 		nodeList *list = malloc(sizeof(nodeList));
 		addDataToList(list, 2);
-		addDataToList(list, 5);
+		addDataToList(list, '/');
 		addDataToList(list, 7);
 		printf("size = %d\n", list->size);
 		printList(list);
-		removeTailFromList(list);
+		removeTailFromListTill(list, '/');
 		printf("%d\n", list->size);
 		printList(list);
 		

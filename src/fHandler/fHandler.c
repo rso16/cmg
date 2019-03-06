@@ -60,7 +60,8 @@ nodeList * makeTemplatePath(char *pathToProgram, char *templateName)
 	nodeList *fullpath = malloc(sizeof(nodeList));
 	printf("pathToProgram = %s, templateName = %s\n", pathToProgram, templateName);
 	addStrToList(fullpath, pathToProgram);
-	addStrToList(fullpath,"/../templates/");
+	removeTailFromListTill(fullpath, '/');
+	addStrToList(fullpath,"../templates/");
 	addStrToList(fullpath,templateName);
 	printStrList(fullpath);
 	return fullpath;	
