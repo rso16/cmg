@@ -32,29 +32,71 @@ fileLine * getLineFromFile(nodeList *path, int ln)
 		//get line	
 		char c = 0;
 		int lCounter = 0;	
-		bool firstLetter = false;
-		while(c != '\0')
+		bool firstLetter = true; 
+		bool done = false;
+		
+		while(!done)
 		{
+			//get character
 			c = fgetc(fp);
-			if(lCounter == ln)
+
+			//check if we're on the desired line
+			if(ln == lCounter)
 			{
-				if(firstLetter)
+				//check if it is the first letter of the line
+				if(fistLetter)
 				{
-					line->loc = malloc(sizeof(fpos_t));
+					//save pos
 					fgetpos(fp, line->loc);
-					firstLetter = true;
+					firstLetter = false;
+
 				}
-				
-				addDataToList((nodeList *) line, c);				
+				//add letter to list
+
 			}
-			if(c == '\0')
+			
+			//check if end of line
+			if(c == '\n')
 			{
-				lCounter++;
+				//set done
+				done = true;	
 			}
+
+
 		}
-		printStrList(line);	
-		return line;
-	}	
+
+
+//		while(!endOfFile)
+//		{
+//			c = fgetc(fp);
+//			if(c != )
+//			{
+//				if(lCounter == ln)
+//				{
+//					if(firstLetter)
+//					{
+//						printf("first letter\n");
+//						line->loc = malloc(sizeof(fpos_t));
+//						fgetpos(fp, line->loc);
+//						firstLetter = false;
+//					}
+//					addDataToList((nodeList *) line, c);
+//					printf("%c", c);
+//				}
+//				if(c == '\n')
+//				{
+//					lCounter++;
+//				}
+//			}
+//			else
+//			{
+//				endOfFile = true;		
+//			}
+//			printf("test");
+//		}
+//		printStrList((nodeList *)line);	
+//		return line;
+//	}	
 }
 
 nodeList * makeTemplatePath(char *pathToProgram, char *templateName)
